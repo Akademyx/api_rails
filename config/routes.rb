@@ -6,6 +6,7 @@ Rails.application.routes.draw do
         get '/recipes' => "recipes#display"
         resources :recipes, except: [:index] do
           resources :recipesteps, except: [:show]
+        end
       end
       resources :recipes, only: [:index]
     end

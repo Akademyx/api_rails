@@ -1,8 +1,10 @@
+include Pagy::Backend
 module Api
     module V1
         class RecipesController < ApplicationController
             def index
-                recipes = Recipe.index;
+                pagy, recipes = pagy(Recipe.all, items:3);
+                # recipes = Recipe.index;
                 render json: {status: 'SUCCESS', message: 'Loaded recipes', data:recipes},status: :ok
                 # render json: @recipes
             end
@@ -44,7 +46,7 @@ module Api
             private
 
             def recipe_params
-                params.permit(:title, :description)
+                params.permit(:title, :description, :user_id)
             end
 
         end
