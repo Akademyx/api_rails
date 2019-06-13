@@ -31,4 +31,4 @@ rails db:migrate
 rails s -b 0.0.0.0                     // to turn on the server and routes should be                                                available by typing:
 rails routes
 
-
+Pagination done with "pagy", implemented into "recipes" listing index controller
